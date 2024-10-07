@@ -15,12 +15,12 @@ abstract public class BaseToolOperation {
     public BaseToolOperation(Map<String, String> toolArgs) {
         // Here we can validate on the type of operation (using some info from the toolArgs)
         // Based on the type of operation,
-        getDataAndValidate(toolArgs);
+        validateDataAndInitialize(toolArgs);
     }
 
     // Validation and function are specific to the subclass/operation
     abstract protected Map<String, String> handle();
-    abstract protected void getDataAndValidate(Map<String, String> toolArgs);
+    abstract protected void validateDataAndInitialize(Map<String, String> toolArgs);
 
     public Map<String, String> process() {
         return handle();

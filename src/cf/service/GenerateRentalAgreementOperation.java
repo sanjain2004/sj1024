@@ -1,5 +1,6 @@
 package cf.service;
 
+import cf.common.Constants;
 import cf.common.DateTimeUtils;
 import cf.exception.ValidationException;
 import cf.model.AllToolTypeDetails;
@@ -51,12 +52,12 @@ public class GenerateRentalAgreementOperation extends BaseToolOperation {
      * @param toolArgs Map of pre decided keys and their values
      */
     @Override
-    protected void getDataAndValidate(Map<String, String> toolArgs) {
+    protected void validateDataAndInitialize(Map<String, String> toolArgs) {
         toolOperationData = new ToolOperationData();
-        toolOperationData.tool = validateCode(toolArgs.get("code"));
-        toolOperationData.numOfRentalDays = validateRentalDays(toolArgs.get("numDays"));
-        toolOperationData.discountPercent = validateDiscountPercent(toolArgs.get("discount"));
-        toolOperationData.checkoutDate = validateCheckoutDate(toolArgs.get("checkoutDate"));
+        toolOperationData.tool = validateCode(toolArgs.get(Constants.CODE));
+        toolOperationData.numOfRentalDays = validateRentalDays(toolArgs.get(Constants.NUM_OF_RENTAL_DAYS));
+        toolOperationData.discountPercent = validateDiscountPercent(toolArgs.get(Constants.DISCOUNT_PERCENT));
+        toolOperationData.checkoutDate = validateCheckoutDate(toolArgs.get(Constants.CHECKOUT_DATE));
         typeDetails = validateTypeDetails(toolOperationData.tool);
     }
 
@@ -231,5 +232,4 @@ public class GenerateRentalAgreementOperation extends BaseToolOperation {
             throw new ValidationException("checkout date has invalid format:" + dateStr + ". Please enter date in format mm/dd/yyyy");
         }
     }
-
 }
