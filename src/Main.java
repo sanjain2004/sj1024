@@ -25,26 +25,13 @@ public class Main {
         }
         System.out.println("Input params:" + argsMap);
 
-
-       // AllTools.print();
-        //AllToolTypeDetails.print();
-
-
         try {
             BaseToolOperation ops = ToolOperationsFactory.getOperation(argsMap);
             Map<String, String> result = ops.process();
-            //System.out.println("Agreement\n---------");
             System.out.println(result.get("response"));
         }
         catch(Throwable ex) {
-            System.out.println("Processing error: " + ex.getMessage());
+            System.out.println("ERROR: " + ex.getMessage());
         }
-
-//        LocalDate ld = DateTimeUtils.from("12/05/2024");
-//        LocalDate today = LocalDate.now();
-//
-//
-//
-//        System.out.println("today=" + today + "," + ld + "," + ld.getDayOfWeek());
     }
 }

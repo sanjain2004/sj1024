@@ -34,14 +34,10 @@ public class DateTimeUtils {
 
     public static Boolean isWeekend(LocalDate date) {
         return WEEKEND_DAYS.contains(date.getDayOfWeek());
-//        System.out.println(date + "-is weekend=" + isweekend);
-//        return isweekend;
     }
 
     public static Boolean isHoliday(LocalDate date) {
         return HOLIDAYS.contains(date.toString());
-//        System.out.println(date + "-is holiday=" + isholiday);
-//        return isholiday;
     }
 
 }
